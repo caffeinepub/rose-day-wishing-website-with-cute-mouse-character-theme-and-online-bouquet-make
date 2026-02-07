@@ -1,2 +1,3 @@
-# rose-day-wishing-website-with-cute-mouse-character-theme-and-online-bouquet-make
-Exported from Caffeine project: Rose Day wishing website with cute mouse character theme and online bouquet maker
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

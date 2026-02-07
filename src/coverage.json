@@ -1,0 +1,58 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-07T09:07:26.236Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 2,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-16",
+        "summary": "Fix the runtime error in the Wish flow caused by using an empty string value in the bouquet attachment Select dropdown (the error shown: \"…value prop that is not an empty string…set to an empty string to clear the selection and show the placeholder\"). Update the bouquet selection UI on both CreateWishPage and EditWishPage so that no <SelectItem> uses value=\"\" while still allowing the user to choose 'no bouquet' and see the placeholder when cleared.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/lib/bouquetSelect.ts",
+          "frontend/src/pages/CreateWishPage.tsx",
+          "frontend/src/pages/EditWishPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/lib/bouquetSelect.ts",
+          "frontend/src/pages/CreateWishPage.tsx",
+          "frontend/src/pages/EditWishPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-17",
+        "summary": "Ensure the wish create/edit submit payload handling remains correct after the Select fix: when 'No bouquet' is selected/cleared, the frontend must send bouquetId: null (and must not attempt BigInt conversion on a non-numeric sentinel value).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/lib/bouquetSelect.ts",
+          "frontend/src/pages/CreateWishPage.tsx",
+          "frontend/src/pages/EditWishPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/lib/bouquetSelect.ts",
+          "frontend/src/pages/CreateWishPage.tsx",
+          "frontend/src/pages/EditWishPage.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/lib/bouquetSelect.ts",
+    "frontend/src/pages/CreateWishPage.tsx",
+    "frontend/src/pages/EditWishPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

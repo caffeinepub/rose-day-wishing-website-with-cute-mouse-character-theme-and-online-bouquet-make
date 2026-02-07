@@ -1,0 +1,45 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-fix-the-runtime-error-in-the-wish-flow-caused-by-using-an-empty-string-value-in-the-bouquet-attachment-select-dropdown-the-error-shown-value-prop-that-is-not-an-empty-string-set-to-an-empty-string-to-clear-the-selection-and-show-the-placeholder-update-the-bouquet-selection-ui-on-both-createwishpage-and-editwishpage-so-that-no-selectitem-uses-value-while-still-allowing-the-user-to-choose-no-bouquet-and-see-the-placeholder-when-cleared",
+      "featureTitle": "Fix the runtime error in the Wish flow caused by using an empty string value in the bouquet attachment Select dropdown (the error shown: \"…value prop that is not an empty string…set to an empty string to clear the selection and show the placeholder\"). Update the bouquet selection UI on both CreateWishPage and EditWishPage so that no <SelectItem> uses value=\"\" while still allowing the user to choose 'no bouquet' and see the placeholder when cleared.",
+      "files": [
+        "frontend/src/lib/bouquetSelect.ts",
+        "frontend/src/pages/CreateWishPage.tsx",
+        "frontend/src/pages/EditWishPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-wish-create-edit-submit-payload-handling-remains-correct-after-the-select-fix-when-no-bouquet-is-selected-cleared-the-frontend-must-send-bouquetid-null-and-must-not-attempt-bigint-conversion-on-a-non-numeric-sentinel-value",
+      "featureTitle": "Ensure the wish create/edit submit payload handling remains correct after the Select fix: when 'No bouquet' is selected/cleared, the frontend must send bouquetId: null (and must not attempt BigInt conversion on a non-numeric sentinel value).",
+      "files": [
+        "frontend/src/lib/bouquetSelect.ts",
+        "frontend/src/pages/CreateWishPage.tsx",
+        "frontend/src/pages/EditWishPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

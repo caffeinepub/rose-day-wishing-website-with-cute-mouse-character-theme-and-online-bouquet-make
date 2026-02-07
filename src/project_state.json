@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 9,
+  "summary": "Rose Day romantic wishing website with cute mouse character theme, online bouquet maker, added romantic animated (GIF) couple character visuals, and interactive bouquet elements (embed bouquet in wish message; click flowers to reveal secret image/text).",
+  "architectural_notes": [],
+  "known_issues": [
+    "Site is showing errors (user reports current deployment has runtime/build errors).",
+    "Romantic couple GIF animation is not working as expected (hugging each other every second / looping behavior not functioning).",
+    "User reports a problem in the Wish option/flow (issue not yet specified; likely in Create Wish or Wish viewing)."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-a-multi-page-rose-day-web-experience-that-lets-a-user-compose-and-share-an-online-rose-day-wish-sender-name-recipient-name-wish-message-and-optional-short-note-and-produces-a-shareable-link-to-view-the-wish",
+      "title": "Create a multi-page Rose Day web experience that lets a user compose and share an online Rose Day wish (sender name, recipient name, wish message, and optional short note) and produces a shareable link to view the wish.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-online-bouquet-buke-maker-that-allows-users-to-build-a-bouquet-by-selecting-flower-types-colors-quantity-wrapping-style-ribbon-style-and-an-optional-greeting-card-message-with-a-live-preview-and-a-shareable-link-to-the-bouquet",
+      "title": "Implement an online bouquet (\"buke\") maker that allows users to build a bouquet by selecting flower types, colors, quantity, wrapping style, ribbon style, and an optional greeting card message, with a live preview and a shareable link to the bouquet.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-cohesive-cute-romantic-visual-theme-across-the-site-layout-typography-colors-spacing-buttons-cards-suitable-for-rose-day-and-consistent-on-all-pages-avoid-blue-purple-as-primary-colors",
+      "title": "Add a cohesive, cute, romantic visual theme across the site (layout, typography, colors, spacing, buttons, cards) suitable for Rose Day and consistent on all pages; avoid blue/purple as primary colors.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-home-landing-page-that-clearly-offers-two-primary-actions-1-create-a-rose-day-wish-and-2-make-an-online-bouquet-and-features-the-cute-micky-mouse-character-style-prominently-in-the-hero-section",
+      "title": "Create a home/landing page that clearly offers two primary actions: (1) Create a Rose Day Wish and (2) Make an Online Bouquet, and features the cute \"micky mouse\" character style prominently in the hero section.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-frontend-integrate-with-the-backend-canister-to-create-fetch-wishes-and-bouquet-designs-using-react-query-for-loading-states-errors-and-caching-include-friendly-empty-error-states",
+      "title": "Frontend: integrate with the backend canister to create/fetch wishes and bouquet designs using React Query for loading states, errors, and caching; include friendly empty/error states.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-simple-download-or-share-experience-allow-users-to-copy-the-share-link-for-wishes-and-bouquets-and-provide-a-printable-view-friendly-layout-for-the-wish-bouquet-pages-browser-print",
+      "title": "Add a simple \"download or share\" experience: allow users to copy the share link for wishes and bouquets, and provide a printable view-friendly layout for the wish/bouquet pages (browser print).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-image-assets-for-the-cute-mouse-character-and-rose-day-bouquet-motifs-under-frontend-public-assets-generated-and-render-them-in-the-ui-hero-section-headers-or-backgrounds-without-routing-images-through-the-backend",
+      "title": "Add generated static image assets for the cute mouse character and Rose Day/bouquet motifs under frontend/public/assets/generated, and render them in the UI (hero, section headers, or backgrounds) without routing images through the backend.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-new-generated-static-animated-gif-artwork-featuring-an-original-cute-romantic-couple-character-disney-anime-inspired-but-not-using-any-copyrighted-characters-and-incorporate-it-into-the-ui-to-make-the-site-feel-more-romantic-at-minimum-show-it-prominently-on-the-home-hero-and-also-on-wish-bouquet-pages-as-a-decorative-element",
+      "title": "Add new generated static animated GIF artwork featuring an original cute romantic couple character (Disney/anime-inspired but not using any copyrighted characters), and incorporate it into the UI to make the site feel more romantic (at minimum: show it prominently on the Home hero and also on wish/bouquet pages as a decorative element).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-extend-the-rose-day-wish-flow-to-allow-attaching-a-bouquet-to-a-wish-update-the-create-wish-page-to-let-the-user-optionally-select-enter-a-bouquet-to-include-with-the-wish-persist-that-bouquet-reference-in-the-backend-wish-data-and-update-the-view-wish-page-to-display-the-attached-bouquet-preview-details-within-the-wish-view-when-present",
+      "title": "Extend the Rose Day wish flow to allow attaching a bouquet to a wish: update the Create Wish page to let the user optionally select/enter a bouquet to include with the wish, persist that bouquet reference in the backend wish data, and update the View Wish page to display the attached bouquet preview/details within the wish view when present.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-interactive-bouquet-easter-eggs-allow-defining-a-secret-hidden-text-or-a-hidden-image-for-a-specific-flower-selection-in-a-bouquet-persist-the-secret-in-the-bouquet-data-and-on-the-view-bouquet-page-allow-users-to-click-tap-the-corresponding-flower-to-reveal-the-secret",
+      "title": "Implement interactive bouquet Easter eggs: allow defining a secret (hidden text or a hidden image) for a specific flower selection in a bouquet, persist the secret in the bouquet data, and on the View Bouquet page allow users to click/tap the corresponding flower to reveal the secret.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-bouquet-preview-rendering-so-it-can-support-per-flower-click-interactions-needed-for-the-secret-reveal-feature-without-breaking-the-existing-non-interactive-live-preview-used-on-the-bouquet-maker-page",
+      "title": "Update the bouquet preview rendering so it can support per-flower click interactions needed for the secret reveal feature (without breaking the existing non-interactive “Live Preview” used on the Bouquet Maker page).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-identify-and-fix-the-current-runtime-build-errors-happening-across-the-deployed-site-ensuring-all-routes-home-create-wish-view-wish-bouquet-maker-view-bouquet-load-without-throwing-exceptions-in-the-browser-console",
+      "title": "Identify and fix the current runtime/build errors happening across the deployed site, ensuring all routes (Home, Create Wish, View Wish, Bouquet Maker, View Bouquet) load without throwing exceptions in the browser console.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-romantic-couple-gif-behavior-so-the-animation-plays-and-loops-smoothly-without-appearing-to-restart-repeatedly-during-normal-app-usage-e-g-while-react-query-loads-data-or-the-page-re-renders",
+      "title": "Fix the romantic couple GIF behavior so the animation plays and loops smoothly without appearing to restart repeatedly during normal app usage (e.g., while React Query loads data or the page re-renders).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-support-for-choosing-a-romantic-couple-gif-per-wish-and-allow-changing-the-selected-gif-when-editing-an-existing-wish-message-this-includes-persisting-the-selected-gif-choice-in-the-backend-wish-data-providing-ui-controls-to-select-it-during-wish-creation-and-adding-an-edit-flow-for-an-existing-wish-that-can-update-the-message-fields-and-the-selected-gif",
+      "title": "Add support for choosing a romantic couple GIF per wish, and allow changing the selected GIF when editing an existing wish/message. This includes persisting the selected GIF choice in the backend wish data, providing UI controls to select it during wish creation, and adding an edit flow for an existing wish that can update the message fields and the selected GIF.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-runtime-error-in-the-wish-flow-caused-by-using-an-empty-string-value-in-the-bouquet-attachment-select-dropdown-the-error-shown-value-prop-that-is-not-an-empty-string-set-to-an-empty-string-to-clear-the-selection-and-show-the-placeholder-update-the-bouquet-selection-ui-on-both-createwishpage-and-editwishpage-so-that-no-selectitem-uses-value-while-still-allowing-the-user-to-choose-no-bouquet-and-see-the-placeholder-when-cleared",
+      "title": "Fix the runtime error in the Wish flow caused by using an empty string value in the bouquet attachment Select dropdown (the error shown: \"…value prop that is not an empty string…set to an empty string to clear the selection and show the placeholder\"). Update the bouquet selection UI on both CreateWishPage and EditWishPage so that no <SelectItem> uses value=\"\" while still allowing the user to choose 'no bouquet' and see the placeholder when cleared.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-wish-create-edit-submit-payload-handling-remains-correct-after-the-select-fix-when-no-bouquet-is-selected-cleared-the-frontend-must-send-bouquetid-null-and-must-not-attempt-bigint-conversion-on-a-non-numeric-sentinel-value",
+      "title": "Ensure the wish create/edit submit payload handling remains correct after the Select fix: when 'No bouquet' is selected/cleared, the frontend must send bouquetId: null (and must not attempt BigInt conversion on a non-numeric sentinel value).",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a Rose Day wishing website experience featuring a cute Mickey Mouse-like character/theme.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add an online bouquet (buke) making/customization feature (e.g., build/select bouquet online).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Backend: add Motoko data models and stable persistence for wishes and bouquet designs, including create + fetch methods keyed by a generated ID suitable for use in shareable URLs.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add a more romantic feel with GIF animation featuring a cute couple character style (Disney-world/anime-inspired).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Allow attaching/including a bouquet in the Rose Day wish/message experience (wish page should show a bouquet along with the message).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add interactive bouquet Easter eggs: clicking a specific flower reveals a secret image or hidden text.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Allow users to choose/change the romantic couple GIF used in a wish (including when editing an existing wish/message).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Rose Day wishing website with cute mouse character theme and online bouquet maker",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

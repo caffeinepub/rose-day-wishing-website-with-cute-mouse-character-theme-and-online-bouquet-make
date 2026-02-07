@@ -1,0 +1,53 @@
+{
+  "kind": "build_request",
+  "title": "Fix Wish option crash caused by empty SelectItem value in bouquet attachment dropdown",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-16",
+      "text": "Fix the runtime error in the Wish flow caused by using an empty string value in the bouquet attachment Select dropdown (the error shown: \"…value prop that is not an empty string…set to an empty string to clear the selection and show the placeholder\"). Update the bouquet selection UI on both CreateWishPage and EditWishPage so that no <SelectItem> uses value=\"\" while still allowing the user to choose 'no bouquet' and see the placeholder when cleared.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "This problem in wish option"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Visiting the Create Wish page does not show the error banner and does not throw a Radix/Shadcn Select error in the browser console.",
+        "Visiting the Edit Wish page does not show the error banner and does not throw a Radix/Shadcn Select error in the browser console.",
+        "The bouquet dropdown still supports: (a) selecting a bouquet, and (b) selecting 'No bouquet' (or clearing the selection) so the wish is saved with bouquetId = null.",
+        "The Select placeholder \"Select a bouquet (optional)\" is displayed when no bouquet is selected."
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Ensure the wish create/edit submit payload handling remains correct after the Select fix: when 'No bouquet' is selected/cleared, the frontend must send bouquetId: null (and must not attempt BigInt conversion on a non-numeric sentinel value).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Creating a wish with no bouquet succeeds and persists bouquetId as null.",
+        "Editing an existing wish to remove an attached bouquet succeeds and persists bouquetId as null.",
+        "No BigInt conversion errors occur when submitting the form with 'No bouquet' selected/cleared."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under frontend/src/components/ui (Shadcn UI components are read-only in this environment).",
+    "Backend remains single-actor (no new canisters/services)."
+  ],
+  "nonGoals": [
+    "Adding new Wish features or changing the Wish data schema beyond what is required to fix the crash.",
+    "Changing bouquet creation/view flows (unless needed for a minimal shared dropdown fix)."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix Wish bouquet Select empty value crash and preserve null bouquet submit behavior",
+  "requirements": [
+    {
+      "id": "REQ-16",
+      "summary": "Remove empty-string SelectItem values from bouquet dropdown on CreateWishPage/EditWishPage while preserving placeholder and a user-visible 'No bouquet' option.",
+      "acceptanceCriteria": [
+        "Visiting the Create Wish page does not show the error banner and does not throw a Radix/Shadcn Select error in the browser console.",
+        "Visiting the Edit Wish page does not show the error banner and does not throw a Radix/Shadcn Select error in the browser console.",
+        "The bouquet dropdown still supports: (a) selecting a bouquet, and (b) selecting 'No bouquet' (or clearing the selection) so the wish is saved with bouquetId = null.",
+        "The Select placeholder \"Select a bouquet (optional)\" is displayed when no bouquet is selected."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/lib/bouquetSelect.ts",
+          "operation": "create",
+          "description": "Add a small shared helper for bouquet Select values (e.g., a non-empty NO_BOUQUET sentinel value plus mapping helpers) so no SelectItem uses value=\"\" while still allowing the Select to display placeholder when cleared."
+        },
+        {
+          "path": "frontend/src/pages/CreateWishPage.tsx",
+          "operation": "modify",
+          "description": "Update bouquet attachment dropdown to use the shadcn-ui Select component without any SelectItem value=\"\" by introducing a non-empty sentinel for the 'No bouquet' row and mapping Select.onValueChange to clear the state (set to \"\") so the SelectValue placeholder renders. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/EditWishPage.tsx",
+          "operation": "modify",
+          "description": "Update bouquet attachment dropdown to use the shadcn-ui Select component without any SelectItem value=\"\" by introducing a non-empty sentinel for the 'No bouquet' row and mapping Select.onValueChange to clear the state (set to \"\") so the SelectValue placeholder renders. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Ensure create/edit wish submission converts bouquet selection safely and sends bouquetId: null when cleared/No bouquet is chosen, avoiding BigInt conversion on sentinel values.",
+      "acceptanceCriteria": [
+        "Creating a wish with no bouquet succeeds and persists bouquetId as null.",
+        "Editing an existing wish to remove an attached bouquet succeeds and persists bouquetId as null.",
+        "No BigInt conversion errors occur when submitting the form with 'No bouquet' selected/cleared."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/lib/bouquetSelect.ts",
+          "operation": "modify",
+          "description": "Include/adjust a helper that converts the bouquet Select string value into the submit-ready type (bigint | null), ensuring sentinel/empty values map to null and only numeric strings are converted to BigInt."
+        },
+        {
+          "path": "frontend/src/pages/CreateWishPage.tsx",
+          "operation": "modify",
+          "description": "Update wish submit payload handling to derive bouquetId via the shared helper so that cleared/No bouquet selection sends bouquetId: null and never attempts BigInt conversion on a sentinel/non-numeric value."
+        },
+        {
+          "path": "frontend/src/pages/EditWishPage.tsx",
+          "operation": "modify",
+          "description": "Update wish submit payload handling to derive bouquetId via the shared helper so that cleared/No bouquet selection sends bouquetId: null and never attempts BigInt conversion on a sentinel/non-numeric value."
+        }
+      ]
+    }
+  ]
+}

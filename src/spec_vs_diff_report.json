@@ -1,0 +1,35 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-07T09:07:26.233Z",
+  "summary": "Diff adds a bouquet Select helper with a non-empty sentinel value and updates CreateWishPage/EditWishPage to store the Select value as a string and convert it to `bigint | null` on submit, avoiding BigInt conversion errors for the \"no bouquet\" state. However, the diff excerpt does not show the actual Select dropdown JSX (SelectItem values / placeholder behavior), so it cannot be confirmed that all empty-string SelectItem values were removed and that placeholder clearing works as required.",
+  "missing_requirements": [
+    {
+      "id": "REQ-16",
+      "requirement": "Update the bouquet selection UI on both CreateWishPage and EditWishPage so that no <SelectItem> uses value=\"\" while still allowing the user to choose 'no bouquet' and see the placeholder when cleared.",
+      "reason": "The changes shown update state/defaults and add sentinel conversion helpers, but the diff excerpts are truncated before the Select dropdown JSX. There is no direct evidence that `<SelectItem value=\"\">` was removed in both pages or that the placeholder-clearing behavior is implemented via Select props/onValueChange.",
+      "evidence": [
+        "frontend/src/pages/CreateWishPage.tsx (truncated)",
+        "frontend/src/pages/EditWishPage.tsx (truncated)"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Added/updated routing and UI to support an edit-wish route (/wish/$wishId/edit) and related layout/page changes beyond the specific Select crash fix.",
+      "reason": "BuildRequest only asks to fix the Select empty-string crash and ensure correct payload handling; it does not request new routes/layout changes or broader page/view enhancements.",
+      "evidence": [
+        "frontend-file-summaries.txt (App.tsx: \"defining all routes including new edit wish route (/wish/$wishId/edit)\")",
+        "frontend-file-summaries.txt (AppLayout.tsx, HomePage.tsx, ViewWishPage.tsx summaries)"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/lib/bouquetSelect.ts",
+    "frontend/src/pages/CreateWishPage.tsx",
+    "frontend/src/pages/EditWishPage.tsx",
+    "project_state.json"
+  ]
+}

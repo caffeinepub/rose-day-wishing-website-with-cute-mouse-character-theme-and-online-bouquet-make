@@ -1,0 +1,23 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup defining all routes including new edit wish route (/wish/$wishId/edit) with AppLayout wrapper.",
+  "frontend/src/components/AppLayout.tsx": "Reusable layout component with sticky header navigation, rose pattern background overlay, and footer with caffeine.ai attribution.",
+  "frontend/src/pages/HomePage.tsx": "Landing page with hero section using memoized RomanticGif component, two primary CTAs, and feature cards explaining wish and bouquet functionality.",
+  "frontend/src/pages/CreateWishPage.tsx": "Form page for creating Rose Day wishes with GIF picker, validation, loading states, optional bouquet attachment using non-empty sentinel values, and success screen with shareable link.",
+  "frontend/src/pages/ViewWishPage.tsx": "Read-only wish display page showing selected romantic GIF, wish details, edit button, attached bouquet preview, and print/copy functionality.",
+  "frontend/src/pages/BouquetMakerPage.tsx": "Interactive bouquet creation page with form controls for flower selection, optional secret message configuration (text and image), live preview panel, validation, and success screen with shareable link.",
+  "frontend/src/pages/ViewBouquetPage.tsx": "Read-only bouquet display page with memoized RomanticGif component, interactive flower click-to-reveal secret, and print/copy functionality.",
+  "frontend/src/components/BouquetPreview.tsx": "Reusable bouquet preview component displaying visual flower arrangement with optional interactive mode for click handlers, wrapping, ribbon, and summary details used in both maker and view pages.",
+  "frontend/src/components/CopyLinkButton.tsx": "Reusable button component for copying URLs to clipboard with visual feedback (copy/check icon toggle).",
+  "frontend/src/hooks/useWish.ts": "React Query hooks for wish operations including create, edit, get single, and get all wishes with proper gifUrl support and cache invalidation.",
+  "frontend/src/hooks/useBouquet.ts": "React Query hooks for bouquet operations (create with secret configuration, get single, get all) with proper actor integration and cache invalidation.",
+  "frontend/src/lib/shareLinks.ts": "Helper functions to build absolute shareable URLs for wishes and bouquets based on current origin and ID.",
+  "frontend/src/lib/bouquetOptions.ts": "Centralized constants for bouquet customization options (flower types, colors, wrapping styles, ribbon styles).",
+  "frontend/src/index.css": "Global styles with romantic OKLCH color system (reds/pinks/creams), rose pattern overlay, serif headings, and print-friendly CSS rules.",
+  "frontend/tailwind.config.js": "Tailwind configuration with extended border radius utilities, soft shadows, and romantic color palette tokens.",
+  "frontend/src/components/SecretReveal.tsx": "Dialog component for revealing secret messages and images hidden in bouquet flowers, with romantic styling and animations.",
+  "frontend/src/lib/romanticGifs.ts": "Defines available romantic couple GIF options with IDs, names, and URLs, plus helper functions to get GIFs by URL with fallback to default.",
+  "frontend/src/components/RomanticGif.tsx": "Memoized component that renders animated GIFs with stable src to prevent restarts, includes error handling with graceful fallback UI.",
+  "frontend/src/components/RomanticGifPicker.tsx": "Interactive GIF selection component displaying all romantic GIF options in a grid with preview images and visual selection state.",
+  "frontend/src/pages/EditWishPage.tsx": "Edit form page for updating existing wishes including all fields (names, message, note, bouquet, GIF selection) with validation, save functionality, and proper bouquet Select value handling using sentinel values.",
+  "frontend/src/lib/bouquetSelect.ts": "Helper utilities for bouquet Select component providing sentinel value and conversion functions to avoid empty string values which are not allowed by Radix UI Select."
+}
